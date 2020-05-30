@@ -1,14 +1,29 @@
 ﻿<Frame CornerRadius="10" BackgroundColor="Color.LightBlue">
 
-    <StackLayout Orientation="StackOrientation.Horizontal" HorizontalOptions="LayoutOptions.Center">
+   
+    <StackLayout Orientation="StackOrientation.Vertical" HorizontalOptions="LayoutOptions.Center">
+        <Label Text="Nombre del Computador:" />
+        <Entry HorizontalOptions="LayoutOptions.FillAndExpand" />
+
+        <Label Text="Sistema Operativo:" />
+        <Entry HorizontalOptions="LayoutOptions.FillAndExpand" />
+
+        <Label Text="Memoria:" />
+        <Entry HorizontalOptions="LayoutOptions.FillAndExpand" />
+
+        <Label Text="Disco:" />
+        <Entry HorizontalOptions="LayoutOptions.FillAndExpand" />
+
+        <Label Text="Procesador:" />
+        <Entry HorizontalOptions="LayoutOptions.FillAndExpand" />
+
 
         <Button Text="Increment" OnClick="@IncrementCount" />
 
         <Label Text="@("The button was clicked " + count + " times")"
                FontAttributes="FontAttributes.Bold"
                VerticalTextAlignment="TextAlignment.Center" />
-
-    </StackLayout>
+    </StackLayout> 
 
 </Frame>
 
