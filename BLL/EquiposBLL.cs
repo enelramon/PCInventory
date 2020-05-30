@@ -9,7 +9,7 @@ using System.Text;
 
 namespace BLL
 {
-    public static class EntidadesBLL
+    public static class EquiposBLL
     {
         /// <summary>
         /// Permite insertar o modificar una entidad en la base de datos
