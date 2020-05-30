@@ -24,5 +24,10 @@ namespace PCInventory.WPF
         {
             InitializeComponent();
         }
+
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

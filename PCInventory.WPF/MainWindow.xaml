@@ -7,6 +7,40 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,0,0,0">
 
+            <StackPanel Orientation="Vertical">
+               
+                <Label Content="Nombre del Computador:"/>
+                <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}" />
+
+                <Label Content="Sistema Operativo:"/>
+                <TextBox x:Name="SistemaOperativoTextBox" Text="{Binding SistemaOperativo}"/>
+
+                <Label Content="Memoria:"/>
+                <TextBox x:Name="MemoriaTextBox" Text="{Binding Memoria}" />
+
+                <Label Content="Disco:" />
+                <TextBox x:Name="DiscoTextBox" Text="{Binding Disco}" />
+                
+                <Label Content="Procesador:" />
+                <TextBox x:Name="ProcesadorTextBox" Text="{Binding Procesador}" />
+                
+                <Label Content="Area:" />
+                <TextBox x:Name="AreaTextBox" Text="{Binding Area}" />
+            </StackPanel>
+
+            <!--BARRA DE BOTONES-->
+            <StackPanel Orientation="Horizontal" Margin="0,15" >
+                
+                <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Guardar.png"  />
+                        <Label Content="Guardar" />
+                    </StackPanel>
+                </Button>
+                
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
