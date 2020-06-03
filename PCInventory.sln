@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCInventory.Blazor", "PCInventory.Blazor\PCInventory.Blazor.csproj", "{1A087303-BC33-46FC-8885-7450277A712E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCInventory.Blazor", "PCInventory.Blazor\PCInventory.Blazor.csproj", "{1A087303-BC33-46FC-8885-7450277A712E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCInventory.API", "PCInventory.API\PCInventory.API.csproj", "{581A5FC0-B8B2-4179-9354-1E558357946E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCInventory.API", "PCInventory.API\PCInventory.API.csproj", "{581A5FC0-B8B2-4179-9354-1E558357946E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCInventory.WPF", "PCInventory.WPF\PCInventory.WPF.csproj", "{D127E413-43A4-4B12-B6AC-0BAB467471C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCInventory.WPF", "PCInventory.WPF\PCInventory.WPF.csproj", "{D127E413-43A4-4B12-B6AC-0BAB467471C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MobileApp", "MobileApp", "{33CBA3E3-1E23-4FB0-8CF5-BF0CE2770B2B}"
 EndProject
@@ -17,11 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileApp.Android", "Mobile
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileApp.iOS", "MobileApp\MobileApp.iOS\MobileApp.iOS.csproj", "{98B9D4D1-AF47-4AC1-9725-F501A16280A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{70F7DCB6-D64E-4D51-B6ED-2FE8670F96EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{70F7DCB6-D64E-4D51-B6ED-2FE8670F96EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{CD63755A-D6B4-4A63-84EA-035C70687385}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{CD63755A-D6B4-4A63-84EA-035C70687385}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{02D9977D-8367-49F7-8601-7F815CB54968}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{02D9977D-8367-49F7-8601-7F815CB54968}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCInventory.Tests", "PCInventory.Tests\PCInventory.Tests.csproj", "{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +147,18 @@ Global
 		{02D9977D-8367-49F7-8601-7F815CB54968}.Release|iPhone.Build.0 = Release|Any CPU
 		{02D9977D-8367-49F7-8601-7F815CB54968}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{02D9977D-8367-49F7-8601-7F815CB54968}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Release|iPhone.Build.0 = Release|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{BEA56BC0-5CAF-42E4-A779-69EAF47D087D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
