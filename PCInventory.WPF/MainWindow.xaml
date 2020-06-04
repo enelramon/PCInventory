@@ -10,7 +10,7 @@
         <StackPanel Orientation="Vertical" Margin="10,0,0,0">
 
             <StackPanel Orientation="Vertical">
-               
+
                 <Label Content="Nombre del Computador:"/>
                 <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}" />
 
@@ -22,25 +22,36 @@
 
                 <Label Content="Disco:" />
                 <TextBox x:Name="DiscoTextBox" Text="{Binding Disco}" />
-                
+
                 <Label Content="Procesador:" />
                 <TextBox x:Name="ProcesadorTextBox" Text="{Binding Procesador}" />
-                
+
                 <Label Content="Area:" />
                 <TextBox x:Name="AreaTextBox" Text="{Binding Area}" />
+
+                <Label Content="Serial:" Height="30"/>
+                <TextBox x:Name="SerialTextBox" Text="{Binding Serial}"/>
+
             </StackPanel>
+           
 
             <!--BARRA DE BOTONES-->
-            <StackPanel Orientation="Horizontal" Margin="0,15" >
-                
+            <StackPanel Orientation="Horizontal" Margin="0,35
+                        
+                        
+                        " >
+
                 <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/Guardar.png"  />
                         <Label Content="Guardar" />
                     </StackPanel>
                 </Button>
-                
+                <Button x:Name="Analizar" Content="Analizar" Width="77" Click="Analizar_Click"/>
+
             </StackPanel>
+           
+
         </StackPanel>
     </Grid>
 </Window>

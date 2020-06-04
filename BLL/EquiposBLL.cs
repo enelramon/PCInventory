@@ -1,6 +1,7 @@
 ﻿using DAL;
 using Entidades;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -164,8 +165,7 @@ namespace BLL
 
             try
             {
-                encontrado = contexto.Equipos
-                    .Any(e => e.EquipoId == id);
+                encontrado = contexto.Equipos.Any(e => e.EquipoId == id);
             }
             catch (Exception)
             {
@@ -179,7 +179,7 @@ namespace BLL
             return encontrado;
         }
 
-        public static List<Equipos> GetEstudiante()
+        public static List<Equipos> GetEquipos()
         {
             List<Equipos> lista = new List<Equipos>();
             Contexto contexto = new Contexto();

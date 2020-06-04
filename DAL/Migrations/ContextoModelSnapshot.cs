@@ -21,10 +21,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Area")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("Disco")
                         .HasColumnType("INTEGER");
 
@@ -36,6 +32,10 @@ namespace DAL.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Procesador")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Serial")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

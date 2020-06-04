@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200530040133_Inicial")]
-    partial class Inicial
+    [Migration("20200604222707_inicio")]
+    partial class inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,10 +23,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Area")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("Disco")
                         .HasColumnType("INTEGER");
 
@@ -38,6 +34,10 @@ namespace DAL.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Procesador")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Serial")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

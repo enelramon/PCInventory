@@ -2,7 +2,7 @@
 
 namespace DAL.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class inicio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,12 +12,12 @@ namespace DAL.Migrations
                 {
                     EquipoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Serial = table.Column<string>(nullable: false),
                     Nombre = table.Column<string>(nullable: false),
                     SistemaOperativo = table.Column<string>(nullable: false),
                     Memoria = table.Column<int>(nullable: false),
                     Disco = table.Column<int>(nullable: false),
-                    Procesador = table.Column<string>(nullable: false),
-                    Area = table.Column<string>(nullable: false)
+                    Procesador = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

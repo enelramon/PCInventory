@@ -25,7 +25,21 @@ namespace Entidades
         [Required(ErrorMessage = "El Procesador es obligatorio")]
         public string Procesador { get; set; }
 
-        [Required(ErrorMessage = "El Area es obligatorio")]
-        public string Area { get; set; }
+        public Equipos()
+        {
+            EquipoId = 0;
+            Serial = string.Empty;
+            Nombre = string.Empty;
+            SistemaOperativo = string.Empty;
+            Memoria = 0;
+            Disco = 0;
+            Procesador = string.Empty;
+        }
+
+        //[Required(ErrorMessage = "El Area es obligatorio")]
+        //public string Area { get; set; }
+
+
+
     }
 }
