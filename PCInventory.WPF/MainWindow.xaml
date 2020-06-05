@@ -26,17 +26,21 @@
                 <Label Content="Procesador:" />
                 <TextBox x:Name="ProcesadorTextBox" Text="{Binding Procesador}" />
 
-                <Label Content="Area:" />
-                <TextBox x:Name="AreaTextBox" Text="{Binding Area}" />
+                <!--<Label Content="Area:" />
+                <TextBox x:Name="AreaTextBox" Text="{Binding Area}" />-->
 
-                <Label Content="Serial:" Height="30"/>
+                <Label Content="Serial: "/>
                 <TextBox x:Name="SerialTextBox" Text="{Binding Serial}"/>
+
+                <Label Content="EquipoID: "/>
+                <TextBox x:Name="EquipoIdTextBox" Text="{Binding EquipoId}" />
+
 
             </StackPanel>
            
 
             <!--BARRA DE BOTONES-->
-            <StackPanel Orientation="Horizontal" Margin="0,35
+            <StackPanel Orientation="Horizontal" Margin="0,25
                         
                         
                         " >
@@ -47,7 +51,7 @@
                         <Label Content="Guardar" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="Analizar" Content="Analizar" Width="77" Click="Analizar_Click"/>
+                <Button x:Name="Analizar" Content="Analizar" Width="78" Click="Analizar_Click"/>
 
             </StackPanel>
            

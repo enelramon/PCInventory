@@ -1,20 +1,9 @@
 ﻿using BLL;
 using Entidades;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PCInventory.WPF
 {
@@ -22,45 +11,49 @@ namespace PCInventory.WPF
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        Equipos equipos = new Equipos();
+    { 
+        private Equipos equipo = new Equipos();
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = equipo;
+            //MyPropertyChanged("equipos");
         }
 
-
+        private void Cargar()
+        {
+            this.DataContext = null;
+            this.DataContext = equipo;
+        }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+
             bool paso = false;
 
-
-            if (equipos.EquipoId == 0)
+            if (equipo.EquipoId == 0)
             {
-                paso = EquiposBLL.Guardar(equipos);
+                paso = EquiposBLL.Guardar(equipo);
             }
             else
             {
-                if (!ExisteEnLaBaseDeDatos())
+                if (ExisteEnLaBaseDeDatos())
                 {
-                    MessageBox.Show("No se puede modificar");
-                    return;
+                    paso = EquiposBLL.Guardar(equipo);
                 }
                 else
                 {
-                    paso = EquiposBLL.Modificar(equipos);
+                    MessageBox.Show("No existe en la Base de Datos", "ERROR");
+                    return;
                 }
-            }
 
-            if (paso)
-            {
-                Limpiar();
-                MessageBox.Show("Guardado");
-            }
-            else
-            {
-                MessageBox.Show("No se pudo guardar");
+                if (paso)
+                {
+                    Limpiar();
+                    MessageBox.Show("Guardado!!", "EXITO", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("No se pudo guardar...", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -117,22 +110,15 @@ namespace PCInventory.WPF
 
         private void Limpiar()
         {
-            equipos = new Equipos();
-            reCargar();
+            this.equipo = new Equipos();
+            this.DataContext = equipo;
         }
 
         private bool ExisteEnLaBaseDeDatos()
         {
-            Equipos anterir = EquiposBLL.Buscar(equipos.EquipoId);
+            Equipos anterior = EquiposBLL.Buscar(equipo.EquipoId);
 
-            return (anterir != null);
+            return (anterior != null);
         }
-
-        private void reCargar()
-        {
-            this.DataContext = null;
-            this.DataContext = equipos;
-        }
-
     }
 }
