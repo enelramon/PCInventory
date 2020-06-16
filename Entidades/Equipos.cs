@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Entidades
 {
@@ -35,11 +33,5 @@ namespace Entidades
             Disco = 0;
             Procesador = string.Empty;
         }
-
-        //[Required(ErrorMessage = "El Area es obligatorio")]
-        //public string Area { get; set; }
-
-
-
     }
 }

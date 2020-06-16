@@ -32,8 +32,7 @@
                 <Label Content="Serial: "/>
                 <TextBox x:Name="SerialTextBox" Text="{Binding Serial}"/>
 
-                <Label Content="EquipoID: "/>
-                <TextBox x:Name="EquipoIdTextBox" Text="{Binding EquipoId}" />
+               
 
 
             </StackPanel>

@@ -1,7 +1,6 @@
 ﻿using DAL;
 using Entidades;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ using System.Text;
 
 namespace BLL
 {
-    public static class EquiposBLL
+    public class EquiposBLL
     {
         /// <summary>
         /// Permite insertar o modificar una entidad en la base de datos
