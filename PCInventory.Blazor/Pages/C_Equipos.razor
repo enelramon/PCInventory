@@ -1,0 +1,119 @@
+﻿@page "/Consultas"
+
+@using BLL
+@using Entidades
+
+<EditForm Model="lista">
+    <DataAnnotationsValidator />
+    <div class="card">
+        <div class="card-header">
+            <h3>Consulta de Articulos</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="input-group mb-4">
+                <div class="input-group">
+                    <label for="filtro">Filtro: </label>
+                    <select class="form-control ml-3 mr-3" @bind="Filtro">
+                        <option value="" disabled selected>Seleccione un filtro</option>
+                        <option value="Todo">Todo</option>
+                        <option value="Id">ID</option>
+                        <option value="Descripcion">Nombre</option>
+                    </select>
+
+                    <label for="criterio ml-3 mr-3"> Criterio: </label>
+                    <input type="search" class="form-control ml-3 mr-3" @bind-value="Criterio" />
+
+                    <button type="button" class="btn btn-primary" @onclick="Buscar">Buscar </button>
+                </div>
+            </div>
+
+            <table class="table table-striped table-dark mb-3 mt-3">
+                <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Sistema opertivo</th>
+                        <th>Serial</th>
+                        <th>Procesador</th>
+                        <th>Disco</th>
+                        <th>Memoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in lista)
+                    {
+                    <tr class="table-striped">
+                        <td>@item.EquipoId</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.SistemaOperativo</td>
+                        <td>@item.Serial</td>
+                        <td>@item.Procesador</td>
+                        <td>@item.Disco</td>
+                        <td>@item.Memoria</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+
+    private List<Equipos> lista { get; set; }
+
+    private string Filtro { get; set; }
+    private string Criterio { get; set; }
+
+    public string mensaje;
+
+    protected override void OnInitialized()
+    {
+        lista = new List<Equipos>();
+    }
+
+    private void Buscar()
+    {
+        try
+        {
+            if (Filtro == null)
+            {
+              
+            }
+            else
+            {
+                lista = BLL.EquiposBLL.GetList(a => true);
+
+                if (lista.Count == 0)
+                {
+        
+                }
+                else
+                {
+                    
+                    switch (Filtro)
+                    {
+                        case "Todo":
+                            lista = EquiposBLL.GetList(e => true);
+                            break;
+                        case "ID":
+                            lista = EquiposBLL.GetList(e => e.EquipoId == Convert.ToInt32(Criterio));
+                            break;
+                        case "Nombre":
+                            lista = EquiposBLL.GetList(e => e.Nombre == Criterio);
+                            break;
+                    }
+
+                }
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+}

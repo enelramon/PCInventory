@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileApp.Android", "Mobile
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileApp", "MobileApp\MobileApp\MobileApp.csproj", "{E6A97BA4-877B-4D58-AD8A-089A03B08A73}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCInventory.Blazor", "PCInventory.Blazor\PCInventory.Blazor.csproj", "{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,18 @@ Global
 		{E6A97BA4-877B-4D58-AD8A-089A03B08A73}.Release|iPhone.Build.0 = Release|Any CPU
 		{E6A97BA4-877B-4D58-AD8A-089A03B08A73}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{E6A97BA4-877B-4D58-AD8A-089A03B08A73}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Release|iPhone.Build.0 = Release|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{66333AE5-7D07-4C9B-8AD7-59D66FEEF4A7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
