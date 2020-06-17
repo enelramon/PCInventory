@@ -11,51 +11,20 @@ namespace PCInventory.WPF
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    { 
-        private Equipos equipo = new Equipos();
+    {
+        private Equipos Equipo = new Equipos();
+
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = equipo;
-            //MyPropertyChanged("equipos");
+            this.DataContext = Equipo;
         }
 
-        private void Cargar()
+
+        private void Limpiar()
         {
-            this.DataContext = null;
-            this.DataContext = equipo;
-        }
-
-        private void GuardarButton_Click(object sender, RoutedEventArgs e)
-        {
-
-            bool paso = false;
-
-            if (equipo.EquipoId == 0)
-            {
-                paso = EquiposBLL.Guardar(equipo);
-            }
-            else
-            {
-                if (ExisteEnLaBaseDeDatos())
-                {
-                    paso = EquiposBLL.Guardar(equipo);
-                }
-                else
-                {
-                    MessageBox.Show("No existe en la Base de Datos", "ERROR");
-                    return;
-                }
-
-                if (paso)
-                {
-                    Limpiar();
-                    MessageBox.Show("Guardado!!", "EXITO", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                    MessageBox.Show("No se pudo guardar...", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
+            this.Equipo = new Equipos();
+            this.DataContext = Equipo;
         }
 
         private void Propiedades()
@@ -103,22 +72,29 @@ namespace PCInventory.WPF
             }
         }
 
+
+
         private void Analizar_Click(object sender, RoutedEventArgs e)
         {
             Propiedades();
         }
 
-        private void Limpiar()
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
-            this.equipo = new Equipos();
-            this.DataContext = equipo;
-        }
+            bool paso = false;
 
-        private bool ExisteEnLaBaseDeDatos()
-        {
-            Equipos anterior = EquiposBLL.Buscar(equipo.EquipoId);
+            paso = EquiposBLL.Guardar(Equipo);
 
-            return (anterior != null);
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Transaccione exitosa!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
     }
 }
