@@ -7,54 +7,68 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+       
+        <TabControl>
+            <TabItem Header="Registrar">
+                <StackPanel Orientation="Vertical" Margin="10,0,0,0">
 
-            <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical">
 
-                <Label Content="Nombre del Computador:"/>
-                <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}" />
+                        <Label Content="Nombre del Computador:"/>
+                        <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}" />
 
-                <Label Content="Sistema Operativo:"/>
-                <TextBox x:Name="SistemaOperativoTextBox" Text="{Binding SistemaOperativo}"/>
+                        <Label Content="Sistema Operativo:"/>
+                        <TextBox x:Name="SistemaOperativoTextBox" Text="{Binding SistemaOperativo}"/>
 
-                <Label Content="Memoria:"/>
-                <TextBox x:Name="MemoriaTextBox" Text="{Binding Memoria}" />
+                        <Label Content="Memoria:"/>
+                        <TextBox x:Name="MemoriaTextBox" Text="{Binding Memoria}" />
 
-                <Label Content="Disco:" />
-                <TextBox x:Name="DiscoTextBox" Text="{Binding Disco}" />
+                        <Label Content="Disco:" />
+                        <TextBox x:Name="DiscoTextBox" Text="{Binding Disco}" />
 
-                <Label Content="Procesador:" />
-                <TextBox x:Name="ProcesadorTextBox" Text="{Binding Procesador}" />
+                        <Label Content="Procesador:" />
+                        <TextBox x:Name="ProcesadorTextBox" Text="{Binding Procesador}" />
 
-                <!--<Label Content="Area:" />
+                        <!--<Label Content="Area:" />
                 <TextBox x:Name="AreaTextBox" Text="{Binding Area}" />-->
 
-                <Label Content="Serial: "/>
-                <TextBox x:Name="SerialTextBox" Text="{Binding Serial}"/>
-
-               
-
-
-            </StackPanel>
-           
-
-            <!--BARRA DE BOTONES-->
-            <StackPanel Orientation="Horizontal" Margin="0,25
-                        
-                        
-                        " >
-
-                <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click" >
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/Guardar.png"  />
-                        <Label Content="Guardar" />
+                        <Label Content="Serial: "/>
+                        <TextBox x:Name="SerialTextBox" Text="{Binding Serial}"/>
                     </StackPanel>
-                </Button>
-                <Button x:Name="Analizar" Content="Analizar" Width="78" Click="Analizar_Click"/>
 
-            </StackPanel>
-           
+                    <!--BARRA DE BOTONES-->
+                    <StackPanel Orientation="Horizontal" Margin="0,25" >
 
-        </StackPanel>
+                        <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/Guardar.png"  />
+                                <Label Content="Guardar" />
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="Analizar" Content="Analizar" Width="78" Click="Analizar_Click"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="Listar">
+                <StackPanel Orientation="Vertical" Margin="10,5,10,0">
+
+                    <StackPanel Orientation="Horizontal" Height="58">                         
+                        <Button x:Name="BuscarButton" Height="34" Width="93" Click="ConsultarButton_Click" >
+                            <StackPanel Orientation="Horizontal" >
+                                <Image Source="/Resources/Buscar.png"  />
+                                <Label Content="Buscar" />
+                            </StackPanel>
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" >
+                        <DataGrid x:Name="DatosDataGrid" Height="350" Width="527"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

@@ -1,8 +1,13 @@
 ﻿using BLL;
 using Entidades;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Management;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace PCInventory.WPF
@@ -13,6 +18,7 @@ namespace PCInventory.WPF
     public partial class MainWindow : Window
     {
         private Equipos Equipo = new Equipos();
+        private List<Equipos> listaEquipos= new List<Equipos>();
 
         public MainWindow()
         {
@@ -20,6 +26,28 @@ namespace PCInventory.WPF
             this.DataContext = Equipo;
         }
 
+        public async Task CargarEquipos()
+        {
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri("https://localhost:44331");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = await client.GetAsync("api/equipos");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var txto= response.Content.ReadAsStringAsync();
+                using var responseStream = await response.Content.ReadAsStreamAsync();
+                {
+                    listaEquipos = await JsonSerializer.DeserializeAsync<List<Equipos>>(responseStream);
+                }
+
+            }
+
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = listaEquipos;
+        }
 
         private void Limpiar()
         {
@@ -73,7 +101,6 @@ namespace PCInventory.WPF
         }
 
 
-
         private void Analizar_Click(object sender, RoutedEventArgs e)
         {
             Propiedades();
@@ -95,6 +122,11 @@ namespace PCInventory.WPF
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+
+        private async void ConsultarButton_Click(object sender, RoutedEventArgs e)
+        {
+           await CargarEquipos();
         }
     }
 }

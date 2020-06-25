@@ -2,6 +2,7 @@
 
 @using BLL
 @using Entidades
+@inject HttpClient client
 
 <EditForm Model="lista">
     <DataAnnotationsValidator />
@@ -43,15 +44,15 @@
                 <tbody>
                     @foreach (var item in lista)
                     {
-                    <tr class="table-striped">
-                        <td>@item.EquipoId</td>
-                        <td>@item.Nombre</td>
-                        <td>@item.SistemaOperativo</td>
-                        <td>@item.Serial</td>
-                        <td>@item.Procesador</td>
-                        <td>@item.Disco</td>
-                        <td>@item.Memoria</td>
-                    </tr>
+                        <tr class="table-striped">
+                            <td>@item.EquipoId</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.SistemaOperativo</td>
+                            <td>@item.Serial</td>
+                            <td>@item.Procesador</td>
+                            <td>@item.Disco</td>
+                            <td>@item.Memoria</td>
+                        </tr>
                     }
                 </tbody>
             </table>
@@ -64,7 +65,7 @@
 @code {
 
     private List<Equipos> lista { get; set; }
-
+    private Equipos equipo;
     private string Filtro { get; set; }
     private string Criterio { get; set; }
 
@@ -75,45 +76,63 @@
         lista = new List<Equipos>();
     }
 
-    private void Buscar()
+    private async Task Buscar()
     {
-        try
-        {
-            if (Filtro == null)
-            {
-              
-            }
-            else
-            {
-                lista = BLL.EquiposBLL.GetList(a => true);
+         HttpClient client = new HttpClient();
 
-                if (lista.Count == 0)
-                {
-        
-                }
-                else
-                {
-                    
-                    switch (Filtro)
-                    {
-                        case "Todo":
-                            lista = EquiposBLL.GetList(e => true);
-                            break;
-                        case "ID":
-                            lista = EquiposBLL.GetList(e => e.EquipoId == Convert.ToInt32(Criterio));
-                            break;
-                        case "Nombre":
-                            lista = EquiposBLL.GetList(e => e.Nombre == Criterio);
-                            break;
-                    }
+            client.BaseAddress = new Uri("https://localhost:44331");
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
+            HttpResponseMessage response = await client.GetAsync("api/equipos");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var txto= response.Content.ReadAsStringAsync();
+                using var responseStream = await response.Content.ReadAsStreamAsync();
+                {
+                    lista = await System.Text.Json.JsonSerializer.DeserializeAsync<List<Equipos>>(responseStream);
                 }
+
             }
-        }
-        catch (Exception)
-        {
-            throw;
-        }
+
+
+        //try
+        //{
+        //    if (Filtro == null)
+        //    {
+
+        //    }
+        //    else
+        //    {
+        //        lista = BLL.EquiposBLL.GetList(a => true);
+
+        //        if (lista.Count == 0)
+        //        {
+
+        //        }
+        //        else
+        //        {
+
+        //            switch (Filtro)
+        //            {
+        //                case "Todo":
+        //                    lista = EquiposBLL.GetList(e => true);
+        //                    break;
+        //                case "ID":
+        //                    lista = EquiposBLL.GetList(e => e.EquipoId == Convert.ToInt32(Criterio));
+        //                    break;
+        //                case "Nombre":
+        //                    lista = EquiposBLL.GetList(e => e.Nombre == Criterio);
+        //                    break;
+        //            }
+
+        //        }
+        //    }
+        //}
+        //catch (Exception)
+        //{
+        //    throw;
+        //}
     }
 
 }

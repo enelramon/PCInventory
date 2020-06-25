@@ -14,22 +14,25 @@ namespace PCInventory.API.Controllers
     [ApiController]
     public class EquiposController : ControllerBase
     {
+
+        // GET: api/Equipos
         [HttpGet]
-        public ActionResult<IEnumerable<Equipos>> Get()
+        public ActionResult<List<Equipos>> Get()
         {
             return EquiposBLL.GetEquipos();
         }
 
+        // GET: api/Equipos/1
         [HttpGet("{id}")]
-        public void Get(int id)
+        public ActionResult<Equipos> Get(int id)
         {
-             EquiposBLL.Buscar(id);
+            return EquiposBLL.Buscar(id);
         }
 
         [HttpPost]
-        public void Post ([FromBody] Equipos equipos)
+        public void Post([FromBody] Equipos equipos)
         {
-             EquiposBLL.Guardar(equipos);
+            EquiposBLL.Guardar(equipos);
         }
     }
 }
